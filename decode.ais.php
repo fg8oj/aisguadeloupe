@@ -200,19 +200,15 @@ function process_ais_itu($_itu, $_len, $_filler /*, $ais_ch*/) {
 			$fields = $vessel[$mmsi];
 			$fields['station']=$station;
 			$fields['mmsi']=$mmsi;
-print_r($fields);
-//echo $url."\n";
 			$fields_string = http_build_query($fields);
 			$ch = curl_init();
 			curl_setopt($ch,CURLOPT_URL, $url);
 			curl_setopt($ch,CURLOPT_POST, 1);
 			curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
 			$result = curl_exec($ch);
-//echo $result;
 			curl_close($ch);
 
 		}
-//		echo "$mmsi, $name, $utc, $lon, $lat, $sog, $cog, $cls, $port\n";
 	}
 	return $id;
 }
