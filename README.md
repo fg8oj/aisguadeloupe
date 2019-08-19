@@ -18,6 +18,9 @@ crontab -e
 nano /home/pi/aisguadeloupe-master/decode.ais.php
 
 $station='FG5ZBX'; <--- Votre indicatif radioamateur ou pseudo
+
 $station_email='info@fg8oj.com'; <--- Votre email pour recevoir les alertes propagations ou coupures de votre récéption
+
 $station_lon=-61.311395; <--- latitude et longitude  de votre station
+
 $station_lat=16.251922;  <--- 
