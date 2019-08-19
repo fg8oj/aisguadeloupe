@@ -5,7 +5,7 @@ $station_lon=-61.311395;
 $station_lat=16.251922;
 
 $url='https://ais.radioamateur.gp/post.php';
-$address = '192.168.2.117';
+$address = '127.0.0.1';
 $port = 4000;
 
 
