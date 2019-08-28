@@ -1,0 +1,15 @@
+[Unit]
+Description=AIS
+After=syslog.target network-online.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/local/bin/rtl_ais -R on -n
+Restart=always
+RestartSec=10
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
+
