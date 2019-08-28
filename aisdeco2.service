@@ -1,0 +1,15 @@
+
+[Unit]
+Description=aisdeco2
+After=syslog.target network-online.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/local/bin/aisdeco2 --tcp 127.0.0.1:10110
+Restart=always
+RestartSec=10
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
