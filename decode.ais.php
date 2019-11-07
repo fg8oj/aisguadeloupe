@@ -196,11 +196,11 @@ function process_ais_itu($_itu, $_len, $_filler /*, $ais_ch*/) {
 		$vessel[$mmsi]['sog']=$sog;
 		$vessel[$mmsi]['cog']=$cog;
 		if ($utc-10>=$lastutco) {
-print_r($fields_string);
 	                $vessel[$mmsi]['lastutc']=$utc;
 			$fields = $vessel[$mmsi];
 			$fields['station']=$station;
 			$fields['mmsi']=$mmsi;
+print_r($fields);
 			$fields_string = http_build_query($fields);
 			$ch = curl_init();
 			curl_setopt($ch,CURLOPT_URL, $url);
