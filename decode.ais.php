@@ -196,6 +196,7 @@ function process_ais_itu($_itu, $_len, $_filler /*, $ais_ch*/) {
 		$vessel[$mmsi]['sog']=$sog;
 		$vessel[$mmsi]['cog']=$cog;
 		if ($utc-10>=$lastutco) {
+print_r($fields_string);
 	                $vessel[$mmsi]['lastutc']=$utc;
 			$fields = $vessel[$mmsi];
 			$fields['station']=$station;
