@@ -4,9 +4,7 @@
 
 ### Installation :
 
-apt-get update && sudo apt-get upgrade
-apt install unzip php-cli php-curl git nmap socat iptraf autossh
-aot install rtl-sdr librtlsdr-dev libusb-1.0-0-dev
+apt-get update && sudo apt-get upgrade && apt install unzip php-cli php-curl git nmap socat iptraf autossh && apt install rtl-sdr librtlsdr-dev libusb-1.0-0-dev
 
 cd /home/pi/
 wget https://github.com/fg8oj/aisguadeloupe/archive/master.zip
