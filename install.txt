@@ -1,0 +1,63 @@
+
+$ wget https://github.com/dgiardini/rtl-ais/archive/master.zip
+$ unzip master.zip && mv rtl-ais-master rtl-ais
+
+Compile and check
+
+And then go to the created directory and compile
+
+$ cd rtl-ais
+
+( 
+  Only Buster!!  Because of a bug You have to edit the "Makefile", with "nano Makefile", and    line
+  LDFLAGS+=$(shell pkg-config --libs librtlsdr)
+  should be changed to
+  LDFLAGS+=-lpthread -lm -lrtlsdr -L /usr/lib/arm-linux-gnueabihf/ 
+  If You don't like this approach check with another AIS software "aisdeco2" in this post
+)
+
+$ make
+
+(
+ If You did a "make" before the change of the Makefile do a "make clean" and then a "make"   again
+)
+
+Copy the program to the right place. 
+
+$ sudo cp rtl_ais /usr/local/bin
+
+Connect the dongle to the RPi, and an antenna to the dongle, and start the software with 
+
+$ sudo rtl_ais -R on -n
+
+
+nano /etc/systemd/system/ais.service
+
+and add the following configuration
+
+[Unit]
+Description=AIS
+After=syslog.target network-online.target
+
+[Service]
+Type=simple
+User=root
+ExecStart=/usr/local/bin/rtl_ais -R on -n
+Restart=always
+RestartSec=10
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
+
+And then the following commands to get it up and running
+
+$ sudo systemctl daemon-reload
+$ sudo systemctl enable ais
+Created symlink /etc/systemd/system/multi-user.target.wants/ais.service → /etc/systemd/system/ais.service.
+$ sudo systemctl start ais
+
+Check with the following command 
+
+$ sudo systemctl status ais
+
