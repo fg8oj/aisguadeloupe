@@ -61,3 +61,7 @@ Check with the following command
 
 $ sudo systemctl status ais
 
+
+TEST EN FM : 
+rtl_fm -f 146520000 -s 44100 -g 9 -l 10 - | aplay -t raw -r 44100 -c 1 -f S16_LE
+
